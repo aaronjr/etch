@@ -5,4 +5,13 @@ document.addEventListener('DOMContentLoaded', function(){
         div.classList = ('div')
         container.append(div)
     }
+
+    divs = document.querySelectorAll('.div')
+        divs.forEach((div)=>{
+            div.addEventListener('mouseover', () => {
+                div.classList = ('color')
+            })
+        })
+
+    
 })
