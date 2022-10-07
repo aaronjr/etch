@@ -19,18 +19,21 @@ h1{
     display: grid;
     width: 640px;
     height: 640px;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
     gap:0;
 }
 
 .div{
     background-color: white;
-    border: 1px solid black;
+    border: 0.1px solid black;
     padding: 0;
     margin: 0;
 }
 
 .color{
     background-color: black;
+}
+
+.maingrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
