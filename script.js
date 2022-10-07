@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
         message.innerHTML = " "
 
         // check if width is a valid size
-        if (width.value < 101 && width.value > 0) {
+        if (width.value < 51 && width.value > 0) {
             size(width.value)
         }
         else {
             // set error message if not
-            message.innerHTML = "Must be between 0 & 100";
+            message.innerHTML = "Must be between 1 & 50";
         }
     })
 

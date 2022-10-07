@@ -10,7 +10,7 @@
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
 }
-h1{
+.title{
     width: 100%;
     text-align: center;
 }
@@ -20,6 +20,7 @@ h1{
     width: 640px;
     height: 640px;
     gap:0;
+    box-shadow:  5px 10px #888888;
 }
 
 .div{
@@ -36,10 +37,44 @@ h1{
     grid-template-columns: 1fr 1fr;
 }
 
-.message{
-    visibility: hidden;
+.othercontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.smalltitle{
+    text-align: center;
+    font-size: large;
+    margin-bottom: 10px;
+}
+.size{
+    margin: auto;
+    width:200px;
+    font-size: large;
+    border-color: black;
+    padding:5px;
+    border-radius: .5rem;
+    box-shadow: none;
+}
+.message{
+    height: 19px;
+    text-align: center;
+}
 .inputholder{
-
+    display:flex;
+    flex-direction: column;
+    padding:20px 200px 0px 200px;
+}
+.buttonholder{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    margin:15px;
+    font-family: 'Roboto', sans-serif;
+    width: 150px;
+    height: 75px;
+    border-radius: .5rem;
+    border-style: none;
 }
