@@ -2,7 +2,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
     document.querySelector('.size').addEventListener('keyup', () => {
         width = document.querySelector('.size')
-        size(width.value)
+        message = document.querySelector('.message');
+        message.innerHTML = " "
+
+        if(width.value < 101 && width.value > 0){
+            size(width.value)
+        }
+        else{
+            message.innerHTML = "Must be between 0 & 100";
+        }
+        
     })
 
     container = document.querySelector('.container')
@@ -20,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function(){
             div.classList = ('div')
             container.append(div)
         }
-    }
-    
-    divs = document.querySelectorAll('.div')
+        
+        divs = document.querySelectorAll('.div')
         divs.forEach((div)=>{
             div.addEventListener('mouseover', () => {
                 div.classList = ('color')
             })
-        })
-
+    })
+    }
     size()
+
 })
