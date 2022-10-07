@@ -50,14 +50,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     second = Math.floor(Math.random() * 255)
                     third = Math.floor(Math.random() * 255)
                     div.style.backgroundColor = `rgb(${first}, ${second}, ${third})`; 
+                    container.style.boxShadow = `5px 10px rgb(${first}, ${second}, ${third})`
                 }
                 // update to white
                 else if(color == "Eraser"){
                     div.style.backgroundColor = 'white'; 
+                    container.style.boxShadow = `5px 10px #888888`
                 }
                 // update to black
                 else{
                     div.style.backgroundColor = 'black';
+                    container.style.boxShadow = `5px 10px #888888`
                 }
             })
         })
@@ -69,13 +72,23 @@ document.addEventListener('DOMContentLoaded', function () {
     changes = document.querySelectorAll('.change')
     changes.forEach((change) => {
         change.addEventListener("click", () => {
+            // turn all buttons back to original color
+            changes.forEach((change) => {
+                change.style.backgroundColor = "buttonface"})
+
+            // change this button to light coral
+            change.style.backgroundColor = 'lightcoral'
+
+            // clear board
             if(change.innerHTML == "Clear"){
                 let clearDivs = document.querySelectorAll('.div')
                 clearDivs.forEach((c) => {
-                    c.style.backgroundColor = "white"
+                    c.style.backgroundColor = "white";
+                    container.style.boxShadow = '5px 10px #888888';
                 })
             }
             else{
+                // ready to paint board black or as an eraser
                 return color = change.innerHTML
             }
             

@@ -73,8 +73,10 @@
 button{
     margin:15px;
     font-family: 'Roboto', sans-serif;
+    font-size: large;
     width: 150px;
     height: 75px;
     border-radius: .5rem;
     border-style: none;
+    box-shadow:  2px 4px #888888;
 }
