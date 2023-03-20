@@ -1,4 +1,27 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+
+    function changeColour(div) {
+      // give three random amounts to rgb
+      if (color == "Rainbow") {
+        first = Math.floor(Math.random() * 255);
+        second = Math.floor(Math.random() * 255);
+        third = Math.floor(Math.random() * 255);
+        div.style.backgroundColor = `rgb(${first}, ${second}, ${third})`;
+        container.style.boxShadow = `5px 10px rgb(${first}, ${second}, ${third})`;
+      }
+      // update to white
+      else if (color == "Eraser") {
+        div.style.backgroundColor = "white";
+        container.style.boxShadow = `5px 10px #888888`;
+      }
+      // update to black
+      else {
+        div.style.backgroundColor = "black";
+        container.style.boxShadow = `5px 10px #888888`;
+      }
+    }
+
+    let mouseDown = false
 
     // check for change on input
     document.querySelector('.size').addEventListener('keyup', () => {
@@ -43,26 +66,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // make the mouseover event work, add eventlistner to all buttons
         let divs = document.querySelectorAll('.div')
         divs.forEach((div) => {
-            div.addEventListener('mouseover',function(){
-                // give three random amounts to rgb
-                if(color == "Rainbow"){
-                    first = Math.floor(Math.random() * 255)
-                    second = Math.floor(Math.random() * 255)
-                    third = Math.floor(Math.random() * 255)
-                    div.style.backgroundColor = `rgb(${first}, ${second}, ${third})`; 
-                    container.style.boxShadow = `5px 10px rgb(${first}, ${second}, ${third})`
-                }
-                // update to white
-                else if(color == "Eraser"){
-                    div.style.backgroundColor = 'white'; 
-                    container.style.boxShadow = `5px 10px #888888`
-                }
-                // update to black
-                else{
-                    div.style.backgroundColor = 'black';
-                    container.style.boxShadow = `5px 10px #888888`
-                }
-            })
+            div.addEventListener("mousedown", (event) => {
+                changeColour(div)
+                mouseDown = true
+                event.preventDefault();
+            });
+            div.addEventListener('mouseover', () => mouseDown && changeColour(div))
+            div.addEventListener("mouseup", () => mouseDown = false);
         })
     
     }
@@ -74,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
         change.addEventListener("click", () => {
             // turn all buttons back to original color
             changes.forEach((change) => {
-                change.style.backgroundColor = "buttonface"})
+                change.style.backgroundColor = "white"})
 
             // change this button to light coral
-            change.style.backgroundColor = 'lightcoral'
+            change.style.backgroundColor = "#fdfaa6";
 
             // clear board
             if(change.innerHTML == "Clear"){
